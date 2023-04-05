@@ -51,7 +51,8 @@ export function Home () {
             <FlatList
                 data={foods}
                 keyExtractor={ (item) => String(item.id) }
-                renderItem={ ({item}) => <CardFood/> }
+                renderItem={ ({item}) => <CardFood data={item}/> }
+                showsVerticalScrollIndicator={false}
             />
 
         </SafeAreaView>
