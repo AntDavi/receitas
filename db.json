@@ -58,7 +58,7 @@
         },
         {
             "id": "2",
-            "name": "Strogonoff Frango",
+            "name": "Strogonoff de frango",
             "total_ingredients": "5",
             "time": 60,
             "cover": "https://i.imgur.com/ITYi8kH.png",
@@ -119,7 +119,7 @@
         },
         {
             "id": "3",
-            "name": "Pizza calabresa",
+            "name": "Pizza de calabresa",
             "total_ingredients": "6",
             "time": 120,
             "cover": "https://i.imgur.com/MRaJXNH.jpg",
@@ -185,7 +185,7 @@
         },
         {
             "id": "4",
-            "name": "Massa de Pastel",
+            "name": "Massa de pastel",
             "total_ingredients": "6",
             "time": 30,
             "cover": "https://i.imgur.com/HUEssUh.jpg",
