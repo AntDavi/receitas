@@ -8,30 +8,52 @@ import { Ingredients } from '../../components/ingredients';
 import { Instructions } from '../../components/instructions';
 import { VideoView } from '../../components/video';
 
+import { isFavorite, saveFavorites, removeFavorites } from '../../utils/storage'
+
 export function Detail () {
     const route = useRoute();
     const navigation = useNavigation();
     const [showVideo, setShowVideo] = useState(false);
+    const [favorite, setFavorite] = useState(false)
 
     useLayoutEffect(() => {
+
+        async function getStatusFavorites() {
+            const recipeFavorite = await isFavorite(routes.params?.data);
+            setFavorite(recipeFavorite)
+        }
+
+        getStatusFavorites()
 
         navigation.setOptions({
             title: route.params?.data ? route.params?.data.name : "Detalhes da receita",
             headerRight: () => (
-                <Pressable onPress={() => {console.log("pizza")}}>
-                    <Entypo 
-                        name='heart' 
-                        color="#ff4141" 
-                        size={28} 
-                    />
+                <Pressable onPress={() => handleFavoriteRecipe(route.params?.data)}>
+                    { favorite ? (
+                        <Entypo 
+                            name='heart' 
+                            color="#ff4141" 
+                            size={28} 
+                        />
+                    ) : (
+                        <Entypo 
+                            name='heart-outlined' 
+                            color="#010101" 
+                            size={28} 
+                        />
+                    )}
                 </Pressable>
             )
         })
 
-    }, [navigation, route.params?.data])
+    }, [navigation, route.params?.data, favorite])
 
     function handleOpenVideo() {
         setShowVideo(true)
+    }
+
+    function handleFavoriteRecipe() {
+        console.log('reste')
     }
 
     async function shareRecipe() {
