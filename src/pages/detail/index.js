@@ -19,7 +19,7 @@ export function Detail () {
     useLayoutEffect(() => {
 
         async function getStatusFavorites() {
-            const recipeFavorite = await isFavorite(routes.params?.data);
+            const recipeFavorite = await isFavorite(route.params?.data);
             setFavorite(recipeFavorite)
         }
 
@@ -52,8 +52,14 @@ export function Detail () {
         setShowVideo(true)
     }
 
-    function handleFavoriteRecipe() {
-        console.log('reste')
+    async function handleFavoriteRecipe(recipe) {
+        if (favorite) {
+            await removeFavorites(recipe.id)
+            setFavorite(false);
+        } else {
+            await saveFavorites("@appreceitas", recipe)
+            setFavorite(true);
+        }
     }
 
     async function shareRecipe() {

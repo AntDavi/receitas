@@ -33,6 +33,7 @@ export async function removeFavorites(id) {
     let recipes = await getFavorites("@appreceitas");
 
     let myFavorites = recipes.filter( item => {
+        console.log('foi removido')
         return( item.id !== id )
     })
 

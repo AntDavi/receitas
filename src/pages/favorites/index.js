@@ -1,15 +1,19 @@
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView} from 'react-native';
 
 export function Favorites () {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text>Página Favorites</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'yellow'
-    }
+        flex: 1,
+        backgroundColor: '#f3f9ff',
+        paddingTop: 36,
+        paddingStart: 14,
+        paddingEnd: 14,
+    },
 })
