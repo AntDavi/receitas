@@ -10,7 +10,9 @@ import api from '../../services/api';
 
 import { useNavigation } from '@react-navigation/native'
 
-export function Home () {
+import { Text as MotiText } from 'moti'
+
+export function Home() {
 
     const [inputValue, setInputValue] = useState("")
     const [foods, setFoods] = useState("")
@@ -27,38 +29,69 @@ export function Home () {
 
     }, [])
 
-    function handleSearch () {
-        if(!inputValue) return;
+    function handleSearch() {
+        if (!inputValue) return;
         let input = inputValue;
         setInputValue("")
-        navigation.navigate("Search", {name: input})
+        navigation.navigate("Search", { name: input })
     }
 
     return (
         <SafeAreaView style={styles.container}>
-            <Logo/>
-            <Text style={styles.title}>Encontre a receita</Text>
-            <Text style={styles.title}>que combina com você</Text>
+            <Logo />
+            <MotiText
+                style={styles.title}
+                from={{
+                    opacity: 0,
+                    translateY: 15,
+                }}
+                animate={{
+                    opacity: 1,
+                    translateY: 0
+                }}
+                transition={{
+                    delay: 100,
+                    type: 'timing',
+                    duration: 650
+                }}
+            >Encontre a receita</MotiText>
+
+            <MotiText
+                style={styles.title}
+                from={{
+                    opacity: 0,
+                    translateY: 15,
+                }}
+                animate={{
+                    opacity: 1,
+                    translateY: 0
+                }}
+                transition={{
+                    delay: 200,
+                    type: 'timing',
+                    duration: 850
+                }}
+            >que combina com você</MotiText>
 
             <View style={styles.form}>
-                <TextInput 
+                <TextInput
                     placeholder='Qual receita você procura?'
                     style={styles.input}
                     value={inputValue}
-                    onChangeText={ (text) => setInputValue(text) }
+                    onChangeText={(text) => setInputValue(text)}
                 />
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     onPress={handleSearch}
                 >
-                    <Ionicons name='search' size={28} color="#4cbe6c"/>
+                    <Ionicons name='search' size={28} color="#4cbe6c" />
                 </TouchableOpacity>
             </View>
 
             <FlatList
                 data={foods}
-                keyExtractor={ (item) => String(item.id) }
-                renderItem={ ({item}) => <CardFood data={item}/> }
+                keyExtractor={(item) => String(item.id)}
+                renderItem={({ item }) => <CardFood data={item} />}
                 showsVerticalScrollIndicator={false}
             />
 
