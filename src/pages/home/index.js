@@ -8,13 +8,16 @@ import { Ionicons } from '@expo/vector-icons'
 
 import api from '../../services/api';
 
+import { useNavigation } from '@react-navigation/native'
+
 export function Home () {
 
     const [inputValue, setInputValue] = useState("")
     const [foods, setFoods] = useState("")
 
-    useEffect(() => {
+    const navigation = useNavigation()
 
+    useEffect(() => {
         async function fetchApi() {
             const response = await api.get("/foods")
             setFoods(response.data)
@@ -25,7 +28,10 @@ export function Home () {
     }, [])
 
     function handleSearch () {
-        console.log(inputValue)
+        if(!inputValue) return;
+        let input = inputValue;
+        setInputValue("")
+        navigation.navigate("Search", {name: input})
     }
 
     return (
@@ -41,6 +47,7 @@ export function Home () {
                     value={inputValue}
                     onChangeText={ (text) => setInputValue(text) }
                 />
+
                 <TouchableOpacity 
                     onPress={handleSearch}
                 >
