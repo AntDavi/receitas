@@ -14,7 +14,7 @@
 
 ## 💻 Projeto
 
-RNIReceitaFacil é um projeto desenvolvido durante a [Semana React Native Insider](https://sujeitoprogramador.com/insider-1/) apresentado pelo [Sujeito Programador](https://sujeitoprogramador.com/) nos dias 03 de Abril a 06 de Abril de 2023. O projeto consiste numa interface mobile de listagens de receitas fáceis, podendo pesquisar, salvar nos favorites e remover a receita que não seja mais a sua favorita.
+ReceitaFacil é um projeto desenvolvido durante a [Semana React Native Insider](https://sujeitoprogramador.com/insider-1/) apresentado pelo [Sujeito Programador](https://sujeitoprogramador.com/) nos dias 03 de Abril a 06 de Abril de 2023. O projeto consiste numa interface mobile de listagens de receitas fáceis, podendo pesquisar, salvar nos favorites e remover a receita que não seja mais a sua favorita.
 
 ## 🧪 Technologies
 
@@ -32,17 +32,11 @@ Esse projeto foi desenvolvido com as seguintes tecnolgias:
 
 ```bash
   # Clone o repositório e entre na pasta do projeto
-  $ git clone https://github.com/RayanneRamos/insider-rn-receitas.git
-  $ cd insider-rn-receitas
+  $ git clone https://github.com/AntDavi/receitas/
   # Instale as dependências
-  $ npm expo install
-  # ou
   $ yarn install
   # Execute a aplicação
-  $ npx expo start
-  # ou
   $ yarn start
-
   # Iniciando o server da aplicação
   $ npx json-server --watch -d 180 --host SEU_IPv4 db.json
 ```
